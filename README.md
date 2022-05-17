@@ -22,7 +22,7 @@
 - va_copy (man 3 va_copy)
 - va_arg (man 3 va_arg)
 
-## Descirption
+## Description
 
 A _printf() function that produces output according to a predescribed format. The function will write the output to stdout, the standard output stream. It will return the count of the printed characters when the function.
 
