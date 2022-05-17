@@ -54,16 +54,16 @@ int _printf(const char *format, ...)
 	int a = 0;
 
 	fmt_t ops[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_integer},
-		{"b", print_binary},
-		{"i", print_integer},
-		{"u", print_unsigned},
-		{"o", print_oct},
-		{"x", print_hex_l},
-		{"X", print_hex_u},
-		{"R", rot13},
+		{"c", ch},
+		{"s", str},
+		{"d", _int},
+		{"b", _bin},
+		{"i", _int},
+		{"u", _ui},
+		{"o", _oct},
+		{"x", _hex_l},
+		{"X", _hex_u},
+		{"R", _rot13},
 		{NULL, NULL}
 	};
 
