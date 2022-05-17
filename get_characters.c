@@ -8,5 +8,5 @@
 
 int ch(va_list character)
 {
-	return(_putchar(va_arg(character, int)));
+	return (_putchar(va_arg(character, int)));
 }
