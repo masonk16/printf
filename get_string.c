@@ -9,14 +9,14 @@
 int print_string(va_list string)
 {
 	int len;
-	char *str;
+	char *print_string;
 
-	str = va_arg(string, char *);
-	if (str == NULL)
-		str = "(null)";
+	print_string = va_arg(string, char *);
+	if (print_string == NULL)
+		print_string = "(null)";
 	len = 0;
 
-	while (str[len] != '\0')
-		len = len + _putchar(str[len]);
+	while (print_string[len] != '\0')
+		len = len + _putchar(print_string[len]);
 	return (len);
 }
