@@ -14,9 +14,7 @@
 
 #define NULL_STRING "(null)"
 
-define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-
-
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
@@ -26,7 +24,7 @@ define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
  *
  * @unsign: flag if unsigned value
  *
- * @plus if plus_flag specified
+ * @plus_flag: on if plus_flag specified
  * @space_flag: on if hashtag_flag specified
  * @hashtag_flag: on if _flag specified
  * @zero_flag: on if _flag specified
@@ -37,6 +35,7 @@ define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
  *
  * @h_modifier: on if h_modifier is specified
  * @l_modifier: on if l_modifier is specified
+ *
  */
 
 typedef struct parameters
@@ -48,20 +47,20 @@ typedef struct parameters
 	unsigned int hashtag_flag	: 1;
 	unsigned int zero_flag		: 1;
 	unsigned int minus_flag		: 1;
-	
+
 	unsigned int width;
 	unsigned int precision;
-	
+
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
 } params_t;
 
 /**
  * struct specifier - Struct token
+ *
  * @specifier: format token
  * @f: The function associated
  */
-
 typedef struct specifier
 {
 	char *specifier;
@@ -78,7 +77,6 @@ int print_int(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
 int print_S(va_list ap, params_t *params);
-
 
 /* number.c module */
 char *convert(long int num, int base, int flags, params_t *params);
@@ -118,6 +116,5 @@ char *get_precision(char *p, params_t *params, va_list ap);
 
 /* _prinf.c module */
 int _printf(const char *format, ...);
-
 
 #endif
