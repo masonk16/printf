@@ -24,26 +24,26 @@ int _printf(const char *format, ...)
 		init_params(&params, ap);
 		if (*p != '%')
 		{
-		sum += _putchar(*p);
-		continue;
-	}
-	start = p;
-	p++;
-	while (get_flag(p, &params)) /* while char at p is flag char */
-	{
-		p++; /* next char */
-	}
-	p = get_width(p, &params, ap);
-	p = get_precision(p, &params, ap);
-	if (get_modifier(p, &params))
+			sum += _putchar(*p);
+			continue;
+		}
+		start = p;
 		p++;
-	if (!get_specifier(p))
-		sum += print_from_to(start, p,
-			params.l_modifier || params.h_modifier ? p - 1 : 0);
-	else
-		sum += get_print_func(p, ap, &params);
-}
-_putchar(BUF_FLUSH);
-va_end(ap);
-return (sum);
+		while (get_flag(p, &params)) /* while char at p is flag char */
+		{
+			p++; /* next char*/
+		}
+		p = get_width(p, &params, ap);
+		p = get_precision(p, &params, ap);
+		if (get_modifier(p, &params))
+			p++;
+		if (!get_specifier(p))
+			sum += print_from_to(start, p,
+				params.l_modifier || params.h_modifier ? p - 1 : 0);
+		else
+			sum += get_print_func(p, ap, &params);
+	}
+	_putchar(BUF_FLUSH);
+	va_end(ap);
+	return (sum);
 }
